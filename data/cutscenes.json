@@ -1,7 +1,7 @@
 [
   {
     "id": "intro",
-    "imageUrl": "/intro-comic.jpg",
+    "imageUrl": "./intro-comic.jpg",
     "duration": 60
   }
 ]
