@@ -1,0 +1,32 @@
+[
+  {
+    "tier": 1,
+    "duration": 10,
+    "rewards": { "PEL": [50, 200], "PLS": [100, 200] }
+  },
+  {
+    "tier": 2,
+    "duration": 30,
+    "rewards": { "PEL": [200, 400], "PLS": [200, 400], "COG": [5, 30] }
+  },
+  {
+    "tier": 3,
+    "duration": 60,
+    "rewards": { "PEL": [400, 600], "PLS": [400, 600], "COG": [100, 200], "XEN": [5, 50] }
+  },
+  {
+    "tier": 4,
+    "duration": 120,
+    "rewards": { "COG": [200, 300], "XEN": [80, 150] }
+  },
+  {
+    "tier": 5,
+    "duration": 300,
+    "rewards": { "XEN": [80, 150], "VOD": [0, 5] }
+  },
+  {
+    "tier": 6,
+    "duration": 600,
+    "rewards": { "XEN": [200, 300], "VOD": [0, 10], "THA": [0, 1] }
+  }
+]

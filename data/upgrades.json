@@ -1,0 +1,186 @@
+[
+  {
+    "id": "wreck_core",
+    "name": "Recover AI-Core",
+    "description": "Salvage the brain of our spaceship to establish a floating base and coordinate operations.",
+    "duration": 30,
+    "cost": { "PEL": 10, "PLS": 5 },
+    "requires": [],
+    "modifiers": [
+      { "param": "baseIntegrity", "value": 50, "isMultiplier": false },
+      { "param": "maxDepthTier", "value": 1, "isMultiplier": false }
+    ]
+  },
+  {
+    "id": "wreck_scanner",
+    "name": "Deep-Water Scanner",
+    "description": "Upgrade the capsule's sensors using the AI-Core to locate the remaining ship modules.",
+    "duration": 45,
+    "cost": { "PEL": 15, "PLS": 10 },
+    "requires": ["wreck_core"],
+    "modifiers": [
+      { "param": "scannerEfficiency", "value": 1.5, "isMultiplier": true },
+      { "param": "maxDepthTier", "value": 1, "isMultiplier": false }
+    ]
+  },
+  {
+    "id": "wreck_engine",
+    "name": "Recover Engine Module",
+    "description": "Dredge up the primary propulsion housing from the oceanic shallows.",
+    "duration": 60,
+    "cost": { "PEL": 20, "PLS": 10, "COG": 2 },
+    "requires": ["wreck_scanner"],
+    "modifiers": [
+      { "param": "engineThrust", "value": 100, "isMultiplier": false },
+      { "param": "maxDepthTier", "value": 1, "isMultiplier": false }
+    ]
+  },
+  {
+    "id": "wreck_turbine",
+    "name": "Recover Turbine Module",
+    "description": "Salvage the atmospheric turbines required for eventual flight.",
+    "duration": 60,
+    "cost": { "PEL": 20, "PLS": 10, "XEN": 2 },
+    "requires": ["wreck_scanner"],
+    "modifiers": [
+      { "param": "powerGeneration", "value": 25, "isMultiplier": false },
+      { "param": "maxDepthTier", "value": 1, "isMultiplier": false }
+    ]
+  },
+  {
+    "id": "wreck_lab",
+    "name": "Recover Lab Module",
+    "description": "Rebuild the 3D printer and research station to unlock advanced base upgrades.",
+    "duration": 90,
+    "cost": { "PEL": 30, "COG": 5 },
+    "requires": ["wreck_scanner"],
+    "modifiers": [
+      { "param": "researchSpeed", "value": 1.2, "isMultiplier": true },
+      { "param": "maxDepthTier", "value": 1, "isMultiplier": false }
+    ]
+  },
+  {
+    "id": "scan_1",
+    "name": "Scanner Tuning",
+    "node": "scan",
+    "level": 1,
+    "description": "Recalibrates the sensor array for finer resolution on nearby wreckage.",
+    "duration": 90,
+    "cost": { "PEL": 15, "COG": 5 },
+    "requires": ["wreck_scanner"],
+    "modifiers": [
+      { "param": "scannerEfficiency", "value": 0.5, "isMultiplier": false }
+    ]
+  },
+  {
+    "id": "scan_2",
+    "name": "Scanner Tuning",
+    "node": "scan",
+    "level": 2,
+    "description": "Adds real-time anomaly filtering, cutting through sensor noise in deep trenches.",
+    "duration": 150,
+    "cost": { "PEL": 25, "COG": 10 },
+    "requires": ["scan_1"],
+    "modifiers": [
+      { "param": "scannerEfficiency", "value": 0.75, "isMultiplier": false }
+    ]
+  },
+  {
+    "id": "scan_3",
+    "name": "Scanner Tuning",
+    "node": "scan",
+    "level": 3,
+    "description": "Links the scanner directly to the AI-Core for predictive terrain mapping.",
+    "duration": 240,
+    "cost": { "PEL": 40, "COG": 18 },
+    "requires": ["scan_2"],
+    "modifiers": [
+      { "param": "scannerEfficiency", "value": 1.0, "isMultiplier": false }
+    ]
+  },
+  {
+    "id": "bat_1",
+    "name": "Basic Battery Expansion",
+    "description": "Increases dive time and energy reserves. (Requires full ship module recovery).",
+    "duration": 60,
+    "cost": { "PEL": 15, "PLS": 10 },
+    "requires": ["wreck_engine", "wreck_turbine", "wreck_lab"],
+    "modifiers": [
+      { "param": "batteryCapacity", "value": 50, "isMultiplier": false }
+    ]
+  },
+  {
+    "id": "ai_1",
+    "name": "AI Cartography Core",
+    "description": "Allows scanning for dangerous anomalies before diving.",
+    "duration": 300,
+    "cost": { "PEL": 20, "COG": 5 },
+    "requires": ["bat_1"],
+    "modifiers": [
+      { "param": "anomalyDetection", "value": 1, "isMultiplier": false }
+    ]
+  },
+  {
+    "id": "hull_1",
+    "name": "Biomimetic Hull",
+    "node": "hull",
+    "level": 1,
+    "description": "Grafts a self-healing organic membrane over the capsule shell.",
+    "duration": 600,
+    "cost": { "PEL": 50, "XEN": 15 },
+    "requires": ["bat_1"],
+    "modifiers": [
+      { "param": "baseIntegrity", "value": 40, "isMultiplier": false }
+    ]
+  },
+  {
+    "id": "hull_2",
+    "name": "Biomimetic Hull",
+    "node": "hull",
+    "level": 2,
+    "description": "Thickens the membrane with calcified plating, adding tolerance for deeper dives.",
+    "duration": 900,
+    "cost": { "PEL": 80, "XEN": 25 },
+    "requires": ["hull_1"],
+    "modifiers": [
+      { "param": "baseIntegrity", "value": 60, "isMultiplier": false },
+      { "param": "maxDepthTier", "value": 1, "isMultiplier": false }
+    ]
+  },
+  {
+    "id": "hull_3",
+    "name": "Biomimetic Hull",
+    "node": "hull",
+    "level": 3,
+    "description": "Fuses the membrane with deep-pressure adaptive cartilage for extreme dives.",
+    "duration": 1200,
+    "cost": { "PEL": 120, "XEN": 40, "VOD": 5 },
+    "requires": ["hull_2"],
+    "modifiers": [
+      { "param": "baseIntegrity", "value": 90, "isMultiplier": false },
+      { "param": "maxDepthTier", "value": 1, "isMultiplier": false }
+    ]
+  },
+  {
+    "id": "time_1",
+    "name": "Timevoid Emitter",
+    "description": "Generates a localized time-stop bubble.",
+    "duration": 3600,
+    "cost": { "COG": 20, "VOD": 5 },
+    "requires": ["ai_1"],
+    "modifiers": [
+      { "param": "timevoidRadius", "value": 10, "isMultiplier": false }
+    ]
+  },
+  {
+    "id": "esc_1",
+    "name": "Escape Thruster Prototype",
+    "description": "The final upgrade needed to leave the planet.",
+    "duration": 86400,
+    "cost": { "VOD": 25, "THA": 3 },
+    "requires": ["time_1", "hull_1"],
+    "modifiers": [
+      { "param": "escapeVelocityReached", "value": 1, "isMultiplier": false }
+    ]
+  }
+]

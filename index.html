@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ocean Crawler Prototype</title>
+    <link rel="stylesheet" href="/src/style.css">
+</head>
+<body>
+<!-- CUTSCENE OVERLAY -->
+<div id="cutscene-overlay">
+    <img id="cutscene-image" src="" alt="Cutscene">
+    <div id="skip-container">
+        <div id="skip-text">Hold to Skip</div>
+        <div id="skip-circle" class="progress-circle">
+            <div class="progress-circle-inner"></div>
+        </div>
+    </div>
+</div>
+
+<!-- MAIN GAME UI -->
+<div id="game-ui" style="display: none; height: 100%; flex-direction: column;">
+    <header id="top-panel">
+        <div id="resources"></div>
+        <div id="prestige">Prestige: 0</div>
+    </header>
+
+    <main id="game-area">
+        <aside id="left-panel">
+            <button id="open-tree-btn" class="tree-open-btn">⛬ Upgrade Tree</button>
+            <h3>Available Upgrades</h3>
+            <div id="upgrade-list"></div>
+        </aside>
+
+        <!-- 3-COLUMN MAIN FRAME OVER BACKGROUND -->
+        <section id="center-panel">
+            <div class="center-col" id="col-stats">
+                <div class="center-col-header">
+                    <h3>Ship Parameters</h3>
+                </div>
+                <div class="center-col-body" id="stats-content"></div>
+            </div>
+            <div class="center-col" id="col-completed">
+                <div class="center-col-header">
+                    <h3>Completed Upgrades</h3>
+                </div>
+                <div class="center-col-body" id="completed-upgrades-content"></div>
+            </div>
+            <div class="center-col" id="col-log">
+                <div class="center-col-header">
+                    <h3>Game Log</h3>
+                </div>
+                <div class="center-col-body" id="game-log-content"></div>
+            </div>
+        </section>
+
+        <aside id="right-panel">
+            <h3>Activities</h3>
+            <div id="scheduler-list"></div>
+        </aside>
+    </main>
+
+    <footer id="bottom-panel">
+        <!-- Dynamically filled with compact buttons -->
+    </footer>
+
+    <!-- UPGRADE TREE (shown in place of game-area/bottom-panel; top-panel stays visible) -->
+    <div id="tree-overlay">
+        <div id="tree-overlay-header">
+            <button id="tree-back-btn">← Back</button>
+            <h2>Upgrade Tree</h2>
+        </div>
+        <div id="tree-canvas-wrapper">
+            <div id="tree-canvas"></div>
+        </div>
+    </div>
+</div>
+
+<script type="module" src="/src/main.ts"></script>
+</body>
+</html>
